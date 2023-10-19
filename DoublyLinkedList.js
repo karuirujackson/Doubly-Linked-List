@@ -71,7 +71,6 @@ class DoublyLinkedList {
 
   ///////////////////////////////////////////////////////////
   //A remove by data method
-
   removeByData() {
     let nodeToRemove;
     let currentNode = this.head;
@@ -85,8 +84,21 @@ class DoublyLinkedList {
     if (!nodeToRemove) { // checks whether the nodeToRemove has any value
         return null;
     }
+    if(nodeToRemove === this.head) { //Check if nodeToRemove is the head
+        this.removeHead();
+      } else if (nodeToRemove === this.tail) { //Check if nodeToRemove is the tail
+        this.removeTail();
+      } else { //else the node to remove is in the middle of the list
+        const nextNode = nodeToRemove.getNextNode(); // reset the pointers for the nodes around it
+        const previousNode = nodeToRemove.getPreviousNode();
+        nextNode.setPreviousNode(previousNode); //removes the pointers to and from nodeToremove and have nextNode and previousNode point to each other
+        previousNode.setNextNode(nextNode);
+      }
+      return nodeToRemove;
   }
 
+  ///////////////////////////////////////////////////////////////
+  //printList () method helps print the pointers of each node as well as data while mainatining order of the list.
   printList() {
     let currentNode = this.head;
     let output = '<head> ';
