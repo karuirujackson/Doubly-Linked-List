@@ -26,6 +26,10 @@ class DoublyLinkedList {
         currentTail.setNextNode(newTail);
         newTail.setPreviousNode(currentTail);
     }
+    this.tail = newTail;
+    if(!this.head) {
+        this.head = newTail;
+    }
   }
   
   printList() {
