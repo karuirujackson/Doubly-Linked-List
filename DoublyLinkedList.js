@@ -69,6 +69,24 @@ class DoublyLinkedList {
     return removedTail.data;
   }
 
+  ///////////////////////////////////////////////////////////
+  //A remove by data method
+
+  removeByData() {
+    let nodeToRemove;
+    let currentNode = this.head;
+    while (currentNode !== data) { //while loop runs while currentNode is not null.
+        if (currentNode.data === data) { // check whether the currentNode's data matches data
+            nodeToRemove = currentNode;
+            break;
+        }
+        currentNode = currentNode.getNextNode();//updates currentNode to to be its next node
+    }
+    if (!nodeToRemove) { // checks whether the nodeToRemove has any value
+        return null;
+    }
+  }
+
   printList() {
     let currentNode = this.head;
     let output = '<head> ';
