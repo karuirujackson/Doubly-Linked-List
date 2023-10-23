@@ -40,7 +40,7 @@ class DoublyLinkedList {
    //A remove head method
   removeHead() {
     const removedHead = this.head;
-    if(removedHead === null) {
+    if(removedHead === null) { //(!removedHead)
         return; //Check if removedTail has value. If not, that means there’s nothing to remove, so return to end the method.
     }
     this.head = removedHead.getNextNode();
